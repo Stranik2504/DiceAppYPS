@@ -101,7 +101,9 @@ namespace Server_DiceApp
 
             while (room.IsFullRoom()) { }
 
-            foreach (var item in room.Players) { item.Manager.SendMessage("|Все подключились.\nНачало игры"); item.Manager.GetMessage(); }
+            int num = 1;
+            foreach (var item in room.Players) { item.Manager.SendMessage("|Все подключились."); item.Manager.GetMessage(); item.Manager.SendMessage(string.Format("green|Начало игры. Вы игрок номер {0}", num)); item.Manager.GetMessage(); num++; }
+            Print($"[Start game for room: {room.RoomId}]", ConsoleColor.Green);
         }
     }
 

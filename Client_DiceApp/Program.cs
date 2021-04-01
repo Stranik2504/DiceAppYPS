@@ -29,7 +29,7 @@ namespace Client_DiceApp
                     List<string> commands = input.Split('|')[0].Split(';').ToList();
                     input = input.Remove(0, input.Split('|')[0].Length + 1);
 
-                    if (!commands.Contains("unvisible")) { Console.WriteLine(input); }
+                    if (!commands.Contains("unvisible")) { if (commands.Contains("green")) { Print(input, ConsoleColor.Green); } else { Console.WriteLine(input); } }
                     if (commands.Contains("get-value")) { string text = Console.ReadLine(); manager.SendMessage(text == "" ? "ok" : text); }
                     else { manager.SendMessage("ok"); }
                     input = commands.Contains("exit") ? input = "exit" : input;
