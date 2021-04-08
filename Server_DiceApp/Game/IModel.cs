@@ -8,5 +8,11 @@ namespace Server_DiceApp.Game
 {
     public interface IModel
     {
+        int Turn { get; }
+        int MaxScore { get; }
+
+        int Play();
+        bool IsWin();
+        int[] WhoIsWin();
     }
 }
